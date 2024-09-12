@@ -29,11 +29,11 @@ app.post('/comments', urlencodedParser, async function (req:any, res:any) {
     var message = element.message;
     messages =  messages + "<p>" + message +  "</p><hr>";
   });
-  res.render(__dirname + "/views/home.html", {messages:messages});
+  res.render(__dirname + "/views/home.html", {stock: `<h3>Comments on ${query}</h3>`, messages:messages});
 });
 
 app.get('/', function(req:any, res:any) {
-  res.render(__dirname + "/views/home.html", {messages:""});
+  res.render(__dirname + "/views/home.html", {stock: "", messages:""});
 
 });
 
