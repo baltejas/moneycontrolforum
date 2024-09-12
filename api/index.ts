@@ -6,7 +6,7 @@ app.use(express.static(__dirname + '/public'));
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.engine('html', require('ejs').renderFile);
 
-app.post('/comments', urlencodedParser, async function (req:any, res:any) {
+app.post('/', urlencodedParser, async function (req:any, res:any) {
   var query = req.body.query;
   var sectionId = "";
   var messages = "";
