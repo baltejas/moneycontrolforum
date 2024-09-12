@@ -11,15 +11,22 @@
         <div class="inner">
           <h2 id="content"><a href="/">Forum Comments</a></h2>
           <div class="row gtr-200">
-            <div class="col-6 col-12-medium">
+            <div class="col-6">
               <section class="alt">
                 <form method="post" action="/">
                   <input type="text" name="query" id="query" placeholder="Stock symbol or name" /><br>
-                  <input type="submit" value="Search" />
+                  <div class="row gtr-200">
+                    <div class="col-3">
+                      <input name="submit" id="submit" type="submit" value="Search" />
+                    </div>
+                    <div class="col-3">
+                      <div style="display:none" id="loading"></div>
+                    </div>
+                  </div>
                 </form>
               </section>
             </div>
-            <div class="col-6 col-12-medium"></div>
+            
           </div>
           <div><p><%- stock %></p></div>
           <div>
@@ -29,4 +36,10 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    document.querySelectorAll('[type=submit]')[0].onclick = function() {
+      console.log("loading")
+      document.getElementById("loading").style.display = 'block';
+    };
+  </script>
 </html>
