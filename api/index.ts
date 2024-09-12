@@ -4,7 +4,7 @@ var app = express();
 app.get('/comments', async function (req, res) {
   var ticker = req.query.stock;
   var sectionId = "";
-  var messages = []; 
+  var messages:any = [];
 
   const response1 = await fetch(`https://www.moneycontrol.com/mccode/common/autosuggestion_solr.php?classic=true&query=${ticker}&type=1&format=json`);
   const body1 = await response1.json();
@@ -18,13 +18,16 @@ app.get('/comments', async function (req, res) {
 
   const response2 = await fetch(`https://api.moneycontrol.com/mcapi/v2/mmb/get-messages/?section=topic&sectionId=${sectionId}&limitStart=0&limitCount=50&msgIdReference=`);
   const body2 = await response2.json();
-  comments = body2.data.list;
+  var comments = body2.data.list;
   comments.forEach(element => {
-    messages.push(element.message);
+    var message = element.message;
+    messages.push(message);
   });
   res.send(messages);
 });
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Server ready on port 3000.');
 });
+
+app.get("/", (req, res) => res.send("Express on Vercel"));
