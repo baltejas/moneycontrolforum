@@ -1,0 +1,31 @@
+<html>
+  <head>
+		<title>Forum</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="css/main.css" />
+	</head>
+  <body class="is-preload">
+    <div id="wrapper">
+      <div id="main">
+        <div class="inner">
+          <h2 id="content">Money Control Forum Comments</h2>
+          <div class="row gtr-200">
+            <div class="col-6 col-12-medium">
+              <section id="search" class="alt">
+                <form method="post" action="/comments">
+                  <input type="text" name="query" id="query" placeholder="Stock symbol or name" /><br>
+                  <input type="submit" value="Search" />
+                </form>
+              </section>
+            </div>
+            <div class="col-6 col-12-medium"></div>
+          </div>
+          <div>
+            <%- messages %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

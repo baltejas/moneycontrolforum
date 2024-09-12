@@ -1,12 +1,17 @@
-var express = require('express');
+const express = require('express');
+const bodyParser = require('body-parser')
+const app = express();
 
-var app = express();
-app.get('/comments', async function (req, res) {
-  var ticker = req.query.stock;
+app.use(express.static(__dirname + '/public'));
+const urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.engine('html', require('ejs').renderFile);
+
+app.post('/comments', urlencodedParser, async function (req:any, res:any) {
+  var query = req.body.query;
   var sectionId = "";
-  var messages:any = [];
+  var messages = "";
 
-  const response1 = await fetch(`https://www.moneycontrol.com/mccode/common/autosuggestion_solr.php?classic=true&query=${ticker}&type=1&format=json`);
+  const response1 = await fetch(`https://www.moneycontrol.com/mccode/common/autosuggestion_solr.php?classic=true&query=${query}&type=1&format=json`);
   const body1 = await response1.json();
   var stock = body1[0];
   var url = stock.forum_topics_url;
@@ -21,13 +26,14 @@ app.get('/comments', async function (req, res) {
   var comments = body2.data.list;
   comments.forEach(element => {
     var message = element.message;
-    messages.push(message);
+    messages =  messages + "<p>" + message +  "</p><hr>";
   });
-  res.send(messages);
+  res.render(__dirname + "/views/home.html", {messages:messages});
 });
 
-app.listen(3000, function () {
-  console.log('Server ready on port 3000.');
+app.get('/', function(req:any, res:any) {
+  res.render(__dirname + "/views/home.html", {messages:""});
+
 });
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+module.exports = app;
