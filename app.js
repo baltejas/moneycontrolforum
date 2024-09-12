@@ -4,7 +4,7 @@ var app = express();
 app.get('/comments', async function (req, res) {
   var ticker = req.query.stock;
   var sectionId = "";
-  var messages = [];
+  var messages = []; 
 
   const response1 = await fetch(`https://www.moneycontrol.com/mccode/common/autosuggestion_solr.php?classic=true&query=${ticker}&type=1&format=json`);
   const body1 = await response1.json();
