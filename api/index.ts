@@ -15,6 +15,7 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
   const body1 = await response1.json();
   var stock = body1[0];
   var url = stock.forum_topics_url;
+  var scId = stock.sc_id;
   var splits = url.split("/");
   var name = splits[splits.length - 1];
   var tokens = name.split("-");
@@ -28,11 +29,18 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
     var message = element.message;
     messages =  messages + "<p>" + message +  "</p><hr>";
   });
-  res.render(__dirname + "/views/home.html", {stock: `<h3>Results for ${query}</h3>`, messages:messages});
+
+  const response3 = await fetch(`https://api.moneycontrol.com/mcapi/v1/stock/get-stock-price?scIdList=${scId}&scId=${scId}`);
+  const body3 = await response3.json();
+  var price = body3.data[0].lastPrice;
+  var change:number = body3.data[0].perChange;
+  var sign = (change > 0) ? "+" : "";
+  var result = `<br><br><h3>Feed for ${query} with price ${price} (${sign}${change}%) </h3><hr>`;
+  res.render(__dirname + "/views/home.html", {result: result, messages:messages});
 });
 
 app.get('/', function(req:any, res:any) {
-  res.render(__dirname + "/views/home.html", {stock: "", messages:""});
+  res.render(__dirname + "/views/home.html", {result: "", messages: "", priceChange: ""});
 
 });
 
