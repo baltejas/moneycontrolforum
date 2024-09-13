@@ -10,12 +10,20 @@
       <div id="main">
         <div class="inner">
           <br><h2 id="content"><a href="/">Stock Feed</a></h2>
-          <div class="row gtr-200">
+          <div class="row">
             <div class="col-6 col-12-medium">
               <section class="alt">
                 <form method="post" action="/">
+                  <input name="isSentiment" id="isSentiment" style="display:none" />
                   <input type="text" name="query" id="query" placeholder="Stock symbol or name" /><br>
-                  <input name="submit" id="submit" type="submit" value="Search" /><br>
+                  <div class="row">
+                    <div class="col-3 col-6-medium">
+                      <input name="submit" id="submit" type="submit" value="Search" /><br>
+                    </div>
+                    <div class="col-3 col-6-medium">
+                      <!--<input name="sentiment" id="sentiment" type="submit" value="Sentiment" /><br>-->
+                    </div>
+                  </div>
                   <img style="display:none" src="images/loader.gif" id="loading">
                 </form>
               </section>
@@ -31,8 +39,11 @@
   </body>
   <script type="text/javascript">
     document.querySelectorAll('[type=submit]')[0].onclick = function() {
-      console.log("loading")
       document.getElementById("loading").style.display = 'block';
+      document.getElementById("isSentiment").value = "false";
+    };
+    document.querySelectorAll('[type=submit]')[1].onclick = function() {
+      document.getElementById("isSentiment").value = "true";
     };
   </script>
 </html>
