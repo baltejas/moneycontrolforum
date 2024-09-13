@@ -32,8 +32,6 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
       var message = element.message;
       messages =  messages + "<p>" + message +  "</p><hr>";
     });
-    
-  
     const response3 = await fetch(`https://api.moneycontrol.com/mcapi/v1/stock/get-stock-price?scIdList=${scId}&scId=${scId}`);
     const body3 = await response3.json();
     var price = body3.data[0].lastPrice;
