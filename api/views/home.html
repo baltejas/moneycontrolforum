@@ -9,19 +9,14 @@
     <div id="wrapper">
       <div id="main">
         <div class="inner">
-          <h2 id="content"><a href="/">Stock Feed</a></h2>
+          <br><h2 id="content"><a href="/">Stock Feed</a></h2>
           <div class="row gtr-200">
             <div class="col-6 col-12-medium">
               <section class="alt">
                 <form method="post" action="/">
                   <input type="text" name="query" id="query" placeholder="Stock symbol or name" /><br>
-                  <div class="row gtr-200">
-                    <div class="col-3 col-12-medium">
-                      <input name="submit" id="submit" type="submit" value="Search" />
-                    </div>
-                    <div class="col-3 col-12-medium">
-                      <div style="display:none" id="loading"></div>
-                    </div>
+                  <input name="submit" id="submit" type="submit" value="Search" /><br>
+                  <img style="display:none" src="images/loader.gif" id="loading">
                 </form>
               </section>
             </div>
