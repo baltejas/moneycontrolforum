@@ -16,6 +16,7 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
   var stock = body1[0];
   var url = stock.forum_topics_url;
   var scId = stock.sc_id;
+  var stockName = stock.name;
   var splits = url.split("/");
   var name = splits[splits.length - 1];
   var tokens = name.split("-");
@@ -35,7 +36,7 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
   var price = body3.data[0].lastPrice;
   var change:number = body3.data[0].perChange;
   var sign = (change > 0) ? "+" : "";
-  var result = `<br><br><h3>Feed for ${query} with price ${price} (${sign}${change}%) </h3><hr>`;
+  var result = `<br><br><h3>Feed for ${stockName} with price ${price} (${sign}${change}%) </h3><hr>`;
   res.render(__dirname + "/views/home.html", {result: result, messages:messages});
 });
 
