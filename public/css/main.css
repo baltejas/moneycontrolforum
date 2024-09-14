@@ -62,9 +62,8 @@ input, select, textarea {
   appearance: none; }
 
 #loading {
-  border-radius: 10%;
   margin-top: 25px;
-  width:5%;
+  width:10%;
 }
 
 small {
