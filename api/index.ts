@@ -36,8 +36,8 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
     const body3 = await response3.json();
     var price = body3.data.pricecurrent;
     var change = body3.data.pricechange;
-    var pe = body3.data.PE;
-    var pb = body3.data.PB;
+    var pe = body3.data.PECONS;
+    var pb = body3.data.PBCONS;
     var sector = body3.data.SC_SUBSEC;
     var sectorpe = body3.data.IND_PE;
     var sign = (change > 0) ? "+" : "";
