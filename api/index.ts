@@ -24,7 +24,7 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
     var tokens = name.split("-");
     var id = tokens[tokens.length -1];
     sectionId = id.split(".")[0];
-    const response2 = await fetch(`https://api.moneycontrol.com/mcapi/v2/mmb/get-messages/?section=topic&sectionId=${sectionId}&limitStart=0&limitCount=50&msgIdReference=`);
+    const response2 = await fetch(`https://api.moneycontrol.com/mcapi/v2/mmb/get-messages/?section=topic&sectionId=${sectionId}&limitStart=0&limitCount=100&msgIdReference=`);
     const body2 = await response2.json();
     var comments = body2.data.list;
     comments.forEach(element => {
