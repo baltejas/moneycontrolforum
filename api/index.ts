@@ -44,6 +44,7 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
     var priceChange = `(${sign}${change})`;
     res.render(__dirname + "/views/home.html", {stockName: `<h3>${stockName}</h3>`, sector: `Sector ${sector}`, price: `Price ${price}`, change: priceChange, pe:`PE ${pe}`, pb:`PB ${pb}`, sectorpe: `Sector PE ${sectorpe} <hr>`, messages:messages});
   } catch(e) {
+    console.log(e);
     var error = `We could not get the stock feed, please try again.`;
     res.render(__dirname + "/views/home.html", {stockName: "", sector: "", price: "", change: "", pe:"", pb:"", sectorpe: "", messages:error});
   }
