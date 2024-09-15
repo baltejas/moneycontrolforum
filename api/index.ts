@@ -42,6 +42,20 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
     var sectorpe = body3.data.IND_PE;
     var sign = (change > 0) ? "+" : "";
     var priceChange = `(${sign}${change})`;
+    var stockData = `<div>
+                        <h3>${stockName}</h3>
+                        <label>Sector</label>
+                        <p>${sector}</p>
+                     </div>`;
+    var priceData = `<div>
+                     <label>Price</label>
+                     <p>${price} ${priceChange}</p>
+                  </div>`;
+    var newsData = `<div>
+                     <h3>${stockName}</h3>
+                     <label>Sector</label>
+                     <p>${sector}</p>
+                  </div>`;
     res.render(__dirname + "/views/home.html", {stockName: `<h3>${stockName}</h3>`, sector: `Sector ${sector}`, price: `Price ${price}`, change: priceChange, pe:`PE ${pe}`, pb:`PB ${pb}`, sectorpe: `Sector PE ${sectorpe} <hr>`, messages:messages});
   } catch(e) {
     console.log(e);
