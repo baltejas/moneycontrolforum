@@ -51,8 +51,9 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
                       <h4>${stockName}</h4>
                      </div>`;
     var priceData = `<div>
-                      <div>Sector ${sector}</div> 
+                      <div>Sector ${sector}</div>
                       <div>Price ${price} ${priceChange}</div>
+                      <div>Book value per share ${bookValue}</div>
                       <div>PE ${pe}</div>
                       <div>PB ${pb}</div>
                       <div>Sector PE ${sectorpe}</div>
@@ -60,7 +61,6 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
                       <div>5 day average ${fiveDayAvg}</div>
                       <div>52 day high ${fiftytwoDayHigh}</div>
                       <div>52 day low ${fiftytwoDayLow}</div>
-                      <div>Book value per share ${bookValue}</div>
                     </div><hr>`;
     res.render(__dirname + "/views/home.html", {stockData: stockData, priceData: priceData, messages:messages});
   } catch(e) {
