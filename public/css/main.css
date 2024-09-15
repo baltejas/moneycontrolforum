@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,600,400italic,600italic|Roboto+Slab:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swaphttps://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
 /*
 	Editorial by HTML5 UP
 	html5up.net | @ajlkn
@@ -103,9 +103,9 @@ body {
 
 /* Type */
 body, input, select, textarea {
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;;
   font-size: 13pt;
-  font-weight: 400;
+  font-weight: 200;
   line-height: 1.65; }
   @media screen and (max-width: 1680px) {
     body, input, select, textarea {
@@ -139,7 +139,7 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   color: #3d4449;
-  font-family: "Roboto", serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   line-height: 1.5;
   margin: 0 0 1em 0; }
@@ -999,7 +999,7 @@ section.special, article.special {
 header p {
   font-family: "Roboto Slab", serif;
   font-size: 1em;
-  font-weight: 400;
+  font-weight: 200;
   letter-spacing: 0.075em;
   margin-top: -0.5em;
   text-transform: uppercase; }
@@ -1112,7 +1112,7 @@ input[type="radio"] {
     cursor: pointer;
     display: inline-block;
     font-size: 1em;
-    font-weight: 400;
+    font-weight: 200;
     padding-left: 2.4em;
     padding-right: 0.75em;
     position: relative; }
@@ -1206,7 +1206,7 @@ input[type="radio"] + label:before {
     line-height: 1;
     text-transform: none !important;
     font-family: 'Font Awesome 5 Free';
-    font-weight: 400; }
+    font-weight: 200; }
   .icon > .label {
     display: none; }
   .icon:before {
@@ -1380,7 +1380,7 @@ ul.contact {
       line-height: 1;
       text-transform: none !important;
       font-family: 'Font Awesome 5 Free';
-      font-weight: 400; }
+      font-weight: 200; }
     ul.contact li:before {
       color: #f56a6a;
       display: inline-block;
@@ -2200,7 +2200,7 @@ button,
   user-select: none;
   color: #3d4449;
   font-family: "Roboto Slab", serif;
-  font-weight: 400;
+  font-weight: 200;
   letter-spacing: 0.075em;
   list-style: none;
   margin-bottom: 0;

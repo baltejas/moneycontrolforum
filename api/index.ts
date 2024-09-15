@@ -40,32 +40,38 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
     var pb = body3.data.PBCONS;
     var sector = body3.data.SC_SUBSEC;
     var sectorpe = body3.data.IND_PE;
+    var fiveDayAvg = body3.data["5DayAvg"];
+    var fiftytwoDayHigh = body3.data["52H"];
+    var fiftytwoDayLow = body3.data["52L"];
+    var fv = body3.data.FV;
+    var bookValue = body3.data.BVCONS;
     var sign = (change > 0) ? "+" : "";
     var priceChange = `(${sign}${change})`;
     var stockData = `<div>
-                        <h3>${stockName}</h3>
-                        <label>Sector</label>
-                        <p>${sector}</p>
+                      <h4>${stockName}</h4>
                      </div>`;
     var priceData = `<div>
-                     <label>Price</label>
-                     <p>${price} ${priceChange}</p>
-                  </div>`;
-    var newsData = `<div>
-                     <h3>${stockName}</h3>
-                     <label>Sector</label>
-                     <p>${sector}</p>
-                  </div>`;
-    res.render(__dirname + "/views/home.html", {stockName: `<h3>${stockName}</h3>`, sector: `Sector ${sector}`, price: `Price ${price}`, change: priceChange, pe:`PE ${pe}`, pb:`PB ${pb}`, sectorpe: `Sector PE ${sectorpe} <hr>`, messages:messages});
+                      <div>Sector ${sector}</div>
+                      <div>Price ${price} ${priceChange}</div>
+                      <div>PE ${pe}</div>
+                      <div>PB ${pb}</div>
+                      <div>Sector PE ${sectorpe}</div>
+                      <div>Face Value ${fv}</div>
+                      <div>5 day average ${fiveDayAvg}</div>
+                      <div>52 day high ${fiftytwoDayHigh}</div>
+                      <div>52 day low ${fiftytwoDayLow}</div>
+                      <div>Book value per share ${bookValue}</div>
+                    </div><hr>`;
+    res.render(__dirname + "/views/home.html", {stockData: stockData, priceData: priceData, messages:messages});
   } catch(e) {
     console.log(e);
     var error = `We could not get the stock feed, please try again.`;
-    res.render(__dirname + "/views/home.html", {stockName: "", sector: "", price: "", change: "", pe:"", pb:"", sectorpe: "", messages:error});
+    res.render(__dirname + "/views/home.html", {stockData: "", priceData: "", messages:error});
   }
 });
 
 app.get('/', function(req:any, res:any) {
-  res.render(__dirname + "/views/home.html", {stockName: "", price: "", sector: "", change: "", pe:"", pb:"", sectorpe: "", messages:""});
+  res.render(__dirname + "/views/home.html", {stockData: "", priceData: "", messages:""});
 
 });
 
