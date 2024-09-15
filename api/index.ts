@@ -53,11 +53,11 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
     var priceData = `<div>
                       <div>Sector ${sector}</div>
                       <div>Price ${price} ${priceChange}</div>
+                      <div>Face Value ${fv}</div>
                       <div>Book value per share ${bookValue}</div>
                       <div>PE ${pe}</div>
                       <div>PB ${pb}</div>
                       <div>Sector PE ${sectorpe}</div>
-                      <div>Face Value ${fv}</div>
                       <div>5 day average ${fiveDayAvg}</div>
                       <div>52 day high ${fiftytwoDayHigh}</div>
                       <div>52 day low ${fiftytwoDayLow}</div>
