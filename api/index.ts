@@ -59,8 +59,8 @@ app.post('/', urlencodedParser, async function (req:any, res:any) {
                       <div>PB ${pb}</div>
                       <div>Sector PE ${sectorpe}</div>
                       <div>5 day average ${fiveDayAvg}</div>
-                      <div>52 day high ${fiftytwoDayHigh}</div>
-                      <div>52 day low ${fiftytwoDayLow}</div>
+                      <div>52 week high ${fiftytwoDayHigh}</div>
+                      <div>52 week low ${fiftytwoDayLow}</div>
                     </div><hr>`;
     res.render(__dirname + "/views/home.html", {stockData: stockData, priceData: priceData, messages:messages});
   } catch(e) {
